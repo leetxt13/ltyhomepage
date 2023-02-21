@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Custom Properties</title>
+    <!--https://developer.mozilla.org/en-us/docs/web/css--*-->
+    <style>
+      /* --변수이름 : CSS에서는 이런식으로 변수정의 가능 */
+      /* var(--변수이름) : 이런식으로 정의한 변수이름을 불러올 수 있음 */
+        :root {
+          --background-color : thistle;
+          --font-size: 50px;
+          --text-color : whitesmoke;
+          --base-space ; 8px;
+        }
+        .first-list {
+          background-color: var(--background-color);
+          color: var(--text-color);
+          margin-left: var(--base-space)
+          font-size: var(--font-size);
+        }
+        .second-list {
+          background-color: var(--background-color);
+          color: var(--text-color)
+          margin-left: calc(var(--base-space)*2)
+          font-size: var(--font-size);
+        }
+        @media screen and (max-width:768px) {
+          :root {
+          --background-color : salmon;
+          --font-size: 50px;
+          --text-color : blue;
+          --base-space ; 4px;} }
+    </style>
+  </head>
+  <body>
+    <ul class="first-list">
+      <li>orange</li>
+      <li>Apple</li>
+    </ul>
+    <ul class="second-list">
+      <li>Korea</li>
+      <li>Japan</li>
+      <li>China</li>
+    </ul>
+  </body>
+</html>
