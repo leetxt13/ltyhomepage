@@ -153,6 +153,7 @@ button {
   max-width: 1100px;
   margin: auto;
 }
+
 .about__majors {
   display: flex;
   justify-content: center;
@@ -320,17 +321,15 @@ button {
 }
 .work__projects {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   justify-content: center;
 }
 
 .project {
   position: relative;
-  height: 250px;
-  width: 280px;
+  height: 200px;
+  width: 240px;
   display: flex;
-  justify-content: center;
-  align-items: center;
   margin: 2px;
   background-color: var(--color-light-white);
 }
