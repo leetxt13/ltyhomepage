@@ -155,8 +155,15 @@ button {
 }
 .about__majors {
   display: flex;
-  justify-content: space-around;
-  margin: 80px 0;
+  justify-content: center;
+  margin: 100px 0;
+  margin-left: 50px;
+}
+.major:nth-child(odd) {
+  margin-right: 80px;
+}
+.major:nth-child(even) {
+  margin-left: 80px;
 }
 .major__icon {
   width: 170px;
@@ -184,14 +191,32 @@ button {
 .major__icon i {
   transition: all var(--animation-duration) ease;
 }
+
 .job {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  max-width: 30%;
+  display: inline-block;
 }
+.job:nth-child(1) {
+  margin-right: 55px;
+}
+.job:nth-child(2) {
+  margin-left: 45px;
+}
+.joblogo {
+  text-align: center;
+}
+.job__logo {
+  margin-left: 30px;
+}
+
 .job_description {
-  margin: 0 50px;
-  text-align: left;
+  margin-left: 30px;
+}
+.job_careers {
+  max-width: 100%;
+  display: block;
+  margin-bottom: 50px;
+  color: var(--color-dark-grey);
 }
 .job__name,
 .job__period {
@@ -202,15 +227,6 @@ button {
 }
 .job__period {
   font-size: var(--font-micro);
-}
-.job__logo {
-  margin-left: 30px;
-}
-.job_careers {
-  text-align: left;
-  margin-left: 30px;
-  margin-bottom: 20px;
-  color: var(--color-dark-grey);
 }
 
 /*skiils*/
@@ -398,4 +414,30 @@ button {
 }
 .testimonial__speech-bubble a {
   color: var(--color-pink);
+}
+
+/*contact*/
+#contact {
+  background-color: var(--color-pink);
+}
+
+.contact__title,
+.contact__email,
+.contact__rights {
+  color: var(--color-white);
+}
+
+.contact__title {
+  margin: 32px 0;
+}
+.contact__links {
+  font-size: var(--font-large);
+  margin: 24px 0;
+}
+.contact__links i {
+  transition: all var(--animation-duration) ease-in-out;
+}
+.contact__links i:hover {
+  transform: scale(1.4);
+  color: var(--color-blue);
 }
