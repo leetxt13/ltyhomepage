@@ -115,7 +115,18 @@ button {
 .navbar__menu__item:hover {
   background-color: var(--color-dark-pink);
 }
+/*absolute를 쓰면 기존자리에서 빠져나오고
+재배치가 일어나서 사용함*/
+.navbar__toggle-btn {
+  position: absolute;
+  top: 24px;
+  right: 32px;
+  font-size: 24px;
+  color: var(--color-white);
+  display: none; /*평상시 보이지 않게*/
+}
 
+/*home*/
 #home {
   background: url("img/home-background.png") center/cover no-repeat;
   padding: 40px;
@@ -154,18 +165,21 @@ button {
   margin: auto;
 }
 
+/*about */
+
 .about__majors {
   display: flex;
   justify-content: center;
   margin: 100px 0;
   margin-left: 50px;
 }
-.major:nth-child(odd) {
-  margin-right: 80px;
+.major:nth-child(1) {
+  margin-right: 40px;
 }
-.major:nth-child(even) {
-  margin-left: 80px;
+.major:nth-child(2) {
+  margin-right: 40px;
 }
+
 .major__icon {
   width: 170px;
   height: 170px;
@@ -194,14 +208,15 @@ button {
 }
 
 .job {
+  margin-right: 40px;
   max-width: 30%;
   display: inline-block;
 }
 .job:nth-child(1) {
-  margin-right: 55px;
+  margin-right: 25px;
 }
 .job:nth-child(2) {
-  margin-left: 45px;
+  margin-left: 25px;
 }
 .joblogo {
   text-align: center;
@@ -214,6 +229,7 @@ button {
   margin-left: 30px;
 }
 .job_careers {
+  margin-right: 35px;
   max-width: 100%;
   display: block;
   margin-bottom: 50px;
@@ -321,7 +337,7 @@ button {
 }
 .work__projects {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   justify-content: center;
 }
 
@@ -439,4 +455,48 @@ button {
 .contact__links i:hover {
   transform: scale(1.4);
   color: var(--color-blue);
+}
+/* For below 768px screen width */
+@media screen and (max-width: 768px) {
+  .navbar__toggle-btn {
+    display: block;
+  }
+  #navbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .navbar__menu {
+    flex-direction: column;
+    align-items: center;
+    width: 100%; /*폭이 작으면 center로 조정이 안됨*/
+    display: none; /* toogle btn을 눌러야 나오도록 */
+  }
+  .about__majors {
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+  }
+  .major {
+    margin-top: 38px;
+    margin-bottom: 38px;
+  }
+  .skillset {
+    flex-direction: column;
+  }
+  .project {
+    flex-grow: 1; /*화면을 꽉채움 */
+    justify-content: center;
+  }
+  .project__img {
+    width: 80%;
+  }
+  .work__categorys {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  .testimonial__avatar {
+    width: 80px;
+    height: 80px;
+  }
 }
