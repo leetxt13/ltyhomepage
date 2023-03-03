@@ -88,12 +88,20 @@ button {
 
 /*Navbar*/
 #navbar {
+  position: fixed;
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  background-color: var(--color-pink);
+  background-color: transparent;
   align-items: center;
   color: var(--color-white);
   padding: 16px;
+  transition: all var(--animation-duration) ease-in-out;
+}
+#navbar.navbar--dark {
+  background-color: var(--color-pink);
+  height: 50px;
+  padding: 8px;
 }
 .navbar__menu {
   display: flex;
@@ -102,6 +110,10 @@ button {
 .navbar__logo {
   font-size: var(--font-medium);
   font-weight: var(--weight-semi-bold);
+  color: white;
+}
+.navbar__menu__item.active {
+  border: 1px solid var(--color-white);
 }
 .navbar__menu__item {
   padding: 8px 12px;
@@ -109,12 +121,11 @@ button {
   cursor: pointer;
   border-radius: var(--size-border-radius);
 }
-.navbar__menu__item.active {
-  border: 1px solid var(--color-white);
-}
+
 .navbar__menu__item:hover {
   background-color: var(--color-dark-pink);
 }
+
 /*absolute를 쓰면 기존자리에서 빠져나오고
 재배치가 일어나서 사용함*/
 .navbar__toggle-btn {
@@ -131,6 +142,7 @@ button {
   background: url("img/home-background.png") center/cover no-repeat;
   padding: 40px;
   text-align: center;
+  padding-top: 120px;
 }
 
 .home__avatar {
