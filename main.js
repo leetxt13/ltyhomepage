@@ -47,3 +47,32 @@ function makeTransparent(selector, originselector) {
 }
 
 makeTransparent(".Home__container", "#Home");
+//Handle click on the "arrow up" button
+const arrowUp = document.querySelector(".arrow-up");
+arrowUp.addEventListener("click", () => {
+  scrollIntoView("#Home");
+});
+
+//show arrow up button when scrolling down
+// 나의 방식
+// document.addEventListener("scroll", () => {
+//   const homeHeight = document
+//     .querySelector("#Home")
+//     .getBoundingClientRect().height;
+//   if (window.scrollY > homeHeight / 2) {
+//     arrowUp.style.display = "block";
+//   } else {
+//     arrowUp.style.display = "none";
+//   }
+// });
+//강사의 방식
+document.addEventListener("scroll", () => {
+  const homeHeight = document
+    .querySelector("#Home")
+    .getBoundingClientRect().height;
+  if (window.scrollY > homeHeight / 2) {
+    arrowUp.classList.add("visible");
+  } else {
+    arrowUp.classList.remove("visible");
+  }
+});
