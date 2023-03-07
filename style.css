@@ -312,6 +312,10 @@ button {
 }
 
 /*works*/
+.work__categorys {
+  margin: 40px;
+}
+
 .category__btn {
   border: 1px solid var(--color-dark-white);
   border-radius: var(--size-border-radius);
@@ -323,9 +327,6 @@ button {
 .category__btn:hover {
   background-color: var(--color-pink);
   color: var(--color-white);
-}
-.work__categorys {
-  margin: 40px;
 }
 
 .category__count {
@@ -352,6 +353,12 @@ button {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  opacity: 1;
+  transition: all var(--animation-duration) ease-out;
+}
+.work__projects.anim-out {
+  opacity: 0.6;
+  transform: scale(0.96) translateY(40px);
 }
 
 .project {
@@ -361,6 +368,9 @@ button {
   display: flex;
   margin: 2px;
   background-color: var(--color-light-white);
+}
+.project.invisible {
+  display: none;
 }
 .project__img {
   max-width: 100%;
@@ -491,7 +501,8 @@ button {
   opacity: 1;
   pointer-events: auto;
 }
-/* 안보이다가 스크롤하면 보이게 해야하므로..
+/* 안보이다가 스크롤하면 보이게 해야하므로..*/
+
 /* For below 768px screen width */
 @media screen and (max-width: 768px) {
   .navbar__toggle-btn {
@@ -511,10 +522,17 @@ button {
     flex-direction: column;
     align-items: center;
     margin: auto;
+    margin-left: 50px;
   }
   .major {
     margin-top: 38px;
     margin-bottom: 38px;
+  }
+  .job_careers {
+    margin-left: 40px;
+  }
+  .job__total {
+    margin-left: 10px;
   }
   .skillset {
     flex-direction: column;
@@ -523,8 +541,9 @@ button {
     flex-grow: 1; /*화면을 꽉채움 */
     justify-content: center;
   }
+
   .project__img {
-    width: 80%;
+    width: 100%;
   }
   .work__categorys {
     display: flex;

@@ -34,19 +34,20 @@ function scrollIntoView(selector) {
   scrollTo.scrollIntoView({ behavior: "smooth" });
 }
 
-//when passing by Home, make opacity turned into transparent
+//when passing by Home, make opacity of home turned into transparent
 
-function makeTransparent(selector, originselector) {
+function makeTransparent(selector, originHomeselector) {
   const element = document.querySelector(selector);
-  const originHeight = document
-    .querySelector(originselector)
+  const originHomeHeight = document
+    .querySelector(originHomeselector)
     .getBoundingClientRect().height;
   document.addEventListener("scroll", () => {
-    element.style.opacity = 1 - window.scrollY / originHeight;
+    element.style.opacity = 1 - window.scrollY / originHomeHeight;
   });
 }
 
 makeTransparent(".Home__container", "#Home");
+
 //Handle click on the "arrow up" button
 const arrowUp = document.querySelector(".arrow-up");
 arrowUp.addEventListener("click", () => {
@@ -75,4 +76,42 @@ document.addEventListener("scroll", () => {
   } else {
     arrowUp.classList.remove("visible");
   }
+});
+
+/* when clicking project button, filter contents by each subject*/
+const workBtnContainer = document.querySelector(".work__categorys");
+const projectContainer = document.querySelector(".work__projects");
+const projects = document.querySelectorAll(".project");
+workBtnContainer.addEventListener("click", (e) => {
+  const filter = e.target.dataset.filter || e.target.parentNode.dataset.filter;
+  /*이벤트의 타켓(버튼), 데이터셋에 있는 필터들을 받아옴*/
+  /* 데이터셋필터가 없으면, 부모의 데이터셋에서 받아오겠다*/
+
+  /*숫자를 누르면 undefined가 나오는 문제 발생 ->부모노드 필터 불러오기 */
+
+  if (filter == null) {
+    return;
+  }
+  projectContainer.classList.add("anim-out");
+  /* project(type)을 쭉 순회, 
+  (all 클릭) filter는 "*"이 됨, 반복문을 따라, type을 쭉 순회 ETC, OA , Work, Work...
+  (*은 조건을 계속 만족시키므로, 모든요소가 invisible remove)
+  (WORK 클릭) filter는 "work", type을 쭉 순회, ETC, OA, WORK(remove됨), WORK(remove됨)
+  */
+
+  setTimeout(() => {
+    projects.forEach((project) => {
+      console.log(project.dataset.type);
+      if (filter === "*" || filter === project.dataset.type) {
+        project.classList.remove(
+          "invisible"
+        ); /*필터가 맞으면, invisible삭제해서, 보이도록*/
+      } else {
+        project.classList.add(
+          "invisible"
+        ); /*필터가 틀리면, invisible추가해서, 안 보이도록*/
+      }
+    });
+    projectContainer.classList.remove("anim-out");
+  }, 200);
 });
