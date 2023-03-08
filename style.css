@@ -153,7 +153,7 @@ button {
 }
 
 .home__avatar {
-  width: 460px;
+  width: 360px;
   height: 350px;
   border-radius: 50%;
   border: 2px solid var(--color-light-white);
@@ -512,7 +512,7 @@ button {
 /* 안보이다가 스크롤하면 보이게 해야하므로..*/
 
 /* For below 768px screen width */
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 768px) {
   .navbar__toggle-btn {
     display: block;
   }
