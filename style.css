@@ -512,7 +512,7 @@ button {
 /* 안보이다가 스크롤하면 보이게 해야하므로..*/
 
 /* For below 768px screen width */
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 480px) {
   .navbar__toggle-btn {
     display: block;
   }
