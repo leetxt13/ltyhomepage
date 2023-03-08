@@ -83,6 +83,13 @@ const workBtnContainer = document.querySelector(".work__categorys");
 const projectContainer = document.querySelector(".work__projects");
 const projects = document.querySelectorAll(".project");
 workBtnContainer.addEventListener("click", (e) => {
+  // Remove selection from the previous item and select the new one
+  const active = document.querySelector(".category__btn.selected");
+  active.classList.remove("selected");
+  const target =
+    e.target.nodeName === "BUTTON" ? e.target : e.target.parentNode;
+  target.classList.add("selected");
+
   const filter = e.target.dataset.filter || e.target.parentNode.dataset.filter;
   /*이벤트의 타켓(버튼), 데이터셋에 있는 필터들을 받아옴*/
   /* 데이터셋필터가 없으면, 부모의 데이터셋에서 받아오겠다*/
@@ -98,7 +105,6 @@ workBtnContainer.addEventListener("click", (e) => {
   (*은 조건을 계속 만족시키므로, 모든요소가 invisible remove)
   (WORK 클릭) filter는 "work", type을 쭉 순회, ETC, OA, WORK(remove됨), WORK(remove됨)
   */
-
   setTimeout(() => {
     projects.forEach((project) => {
       console.log(project.dataset.type);
