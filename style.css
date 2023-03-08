@@ -556,6 +556,19 @@ button {
   .job__total {
     margin-left: 10px;
   }
+  .joblogo,
+  .job_description {
+    width: 230px;
+    height: 100px;
+  }
+  .joblogo{
+    position : relative;
+    right : 10px;
+  }
+  .job_description {
+    position : relative;
+    right : 23px;
+
   .skillset {
     flex-direction: column;
   }
