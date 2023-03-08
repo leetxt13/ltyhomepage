@@ -102,7 +102,7 @@ button {
 #navbar.navbar--dark {
   background-color: var(--color-pink);
   height: 50px;
-  padding: 8px;
+  padding: 7px;
 }
 .navbar__menu {
   display: flex;
@@ -132,10 +132,16 @@ button {
 .navbar__toggle-btn {
   position: absolute;
   top: 24px;
-  right: 32px;
-  font-size: 24px;
+  right: 24px;
+  font-size: 34px;
   color: var(--color-white);
   display: none; /*평상시 보이지 않게*/
+  transition: all var(--animation-duration) ease-in;
+}
+.navbar__toggle-btn.navbar--dark {
+  top: 0.2vh;
+  height: 25px;
+  padding: 7px;
 }
 
 /*home*/
@@ -342,6 +348,7 @@ button {
   left: 4px;
   opacity: 0;
   transition: all var(--animation-duration) ease-in-out;
+  background-color: var(--color-blue);
 }
 
 .category__btn.selected .category__count,
@@ -377,16 +384,16 @@ button {
   max-height: 100%;
 }
 .project__description h3 {
-  color: var(--color-white);
+  color: var(--color-orange);
 }
 .project__description h3:after {
   content: "";
   display: block;
   position: relative;
   left: 50%;
-  width: 25px;
+  width: 75px;
   height: 2px;
-  margin-left: -12px;
+  transform: translateX(-50%);
   margin-top: 8px;
   background-color: var(--color-dark-white);
 }
@@ -511,12 +518,26 @@ button {
   #navbar {
     flex-direction: column;
     align-items: flex-start;
+    background-color: var(--color-pink);
   }
   .navbar__menu {
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     width: 100%; /*폭이 작으면 center로 조정이 안됨*/
     display: none; /* toogle btn을 눌러야 나오도록 */
+  }
+  .navbar__menu2 {
+    width: 100%;
+    text-align: center;
+  }
+
+  .navbar__menu.open {
+    display: block;
+    background-color: var(--color-pink);
+  }
+  .navbar__menu.dark {
+    display: none;
   }
   .about__majors {
     flex-direction: column;

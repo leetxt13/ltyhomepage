@@ -2,12 +2,15 @@
 
 //make navbar transparent or be pink as the scroll postion
 const navbar = document.querySelector("#navbar");
+const navbarToggleBtn = document.querySelector(".navbar__toggle-btn");
 const navbarHeight = navbar.getBoundingClientRect().height;
 document.addEventListener("scroll", () => {
   if (window.scrollY > navbarHeight) {
     navbar.classList.add("navbar--dark");
+    navbarToggleBtn.classList.add("navbar--dark");
   } else {
     navbar.classList.remove("navbar--dark");
+    navbarToggleBtn.classList.remove("navbar--dark");
   }
 });
 
@@ -18,8 +21,16 @@ navbarMenu.addEventListener("click", (event) => {
   if (link == null) {
     return;
   }
+  navbarMenu.classList.remove("open");
   scrollIntoView(link);
 });
+//Navbar toggle button for small screen
+const navbarTogglebtn = document.querySelector(".navbar__toggle-btn");
+
+navbarTogglebtn.addEventListener("click", () => {
+  navbarMenu.classList.toggle("open");
+});
+
 // event.target은 타겟이 되는 부분을 출력
 // event.target.dataset -> 변수를 정의한 것이 dataset에 모임
 
