@@ -602,4 +602,6 @@ button {
     width: 80px;
     height: 80px;
   }
-}
+  .testimonial__speech-bubble p{
+    font-size : 12px;
+  text-align : left;}
