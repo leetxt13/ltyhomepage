@@ -558,31 +558,30 @@ button {
     display: flex;
     flex-flow: column;
     justify-content: center;
-    align-items: center;
+    align-items: baseline;
   }
   .joblogo,
   .job_description {
     height: 100px;
   }
   .job_description {
-    position: relative;
-    width: 240px;
+    min-width: 240px;
+    max-width: 500px;
   }
   .job {
     width: 100%;
-    margin-left: 20px;
+    margin: 0;
   }
-  .joblogo {
-    transform: translateX(-10%);
+
+  .job__logo {
+    margin: 0;
+  }
+  .job__logo:nth-child(1) {
+    margin-left: 50px;
   }
   .job_description {
     text-align: center;
-    transform: translateX(-28%);
   }
-  .job:nth-child(2) {
-    margin-top: 50px;
-  }
-
   .skillset {
     flex-direction: column;
   }
