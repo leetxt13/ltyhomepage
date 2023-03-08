@@ -391,9 +391,9 @@ button {
   display: block;
   position: relative;
   left: 50%;
-  width: 75px;
+  width: 75px; /* 투명바 길이 조정가능 */
   height: 2px;
-  transform: translateX(-50%);
+  transform: translateX(-50%); /* 투명바 중앙 정렬 */
   margin-top: 8px;
   background-color: var(--color-dark-white);
 }
@@ -452,6 +452,7 @@ button {
   display: flex;
   flex-flow: column;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .testimonial__speech-bubble p {
