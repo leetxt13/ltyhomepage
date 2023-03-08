@@ -554,7 +554,7 @@ button {
     margin-left: 40px;
   }
   .job__total {
-    margin-left: 10px;
+    margin: auto;
   }
   .joblogo,
   .job_description {
@@ -564,10 +564,10 @@ button {
   .joblogo {
     position: relative;
     right: 10px;
+    text-align: center;
   }
   .job_description {
-    position: relative;
-    right: 23px;
+    text-align: center;
   }
 
   .skillset {
