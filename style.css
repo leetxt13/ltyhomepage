@@ -555,19 +555,25 @@ button {
   }
   .job__total {
     margin: auto;
+    display: flex;
+    flex-flow: column;
+    align-content: center;
   }
   .joblogo,
   .job_description {
     width: 230px;
     height: 100px;
   }
+  .job {
+    width: 100%;
+    margin-left: 20px;
+  }
   .joblogo {
-    position: relative;
-    right: 10px;
-    text-align: center;
+    transform: translateX(30%);
   }
   .job_description {
     text-align: center;
+    transform: translateX(25%);
   }
 
   .skillset {
