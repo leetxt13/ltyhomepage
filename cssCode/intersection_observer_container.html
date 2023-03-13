@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      .container {
+        width: 600px;
+        height: 800px;
+        margin: 200px;
+        overflow-y: scroll; /* 컨테이너 안에서도 스크롤링이 가능해짐 */
+        background-color: lightyellow;
+      }
+
+      .box {
+        width: 300px;
+        height: 300px;
+        margin: 80px auto;
+        background-color: plum;
+        transition: 350ms;
+      }
+
+      .box.active {
+        background-color: purple;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="box">1</div>
+      <div class="box">2</div>
+      <div class="box">3</div>
+      <div class="box">4</div>
+      <div class="box">5</div>
+      <div class="box">6</div>
+      <div class="box">7</div>
+      <div class="box">8</div>
+      <div class="box">9</div>
+      <div class="box">10</div>
+      <div class="box">11</div>
+      <div class="box">12</div>
+      <div class="box">13</div>
+      <div class="box">14</div>
+      <div class="box">15</div>
+      <div class="box">16</div>
+      <div class="box">17</div>
+      <div class="box">18</div>
+      <div class="box">19</div>
+      <div class="box">20</div>
+    </div>
+
+    <script>
+      const boxes = document.querySelectorAll(".box"); //20개의 div node가 생성됨
+      const options = {
+        root: document.querySelector(".container"), // 기본값, viewport(부모컨테이너), root를 바꾸면 해당 컨테이너 기준으로 적용
+        rootMargin: "0px", // 기본값(0px), 100px를 주면 viewport범위를 100px 확장, 그 영역에 들어오면 콜백함수 수행
+        threshold: 0.5, // 기본값(0), 0~1사이 값, 화면에 얼만큼 보여야 콜백함수 수행하는지 여부
+        // threshold는 0.2로설정하면, 나갈 때는 80%만큼 나갈때 함수실행, 들어올 때는 20%만큼 들어올때 함수 실행
+      };
+      const callback = (entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            //isIntersection : 엔트리가 들어오는중이면 클래스를 추가
+            entry.target.classList.add("active");
+          } else {
+            entry.target.classList.remove("active");
+            //isIntersection : 엔트리가 나가면 클래스를 삭제
+          }
+        });
+      };
+      // observer 객체생성, observer는 entries,observer라는 것을 받아옴
+      const observer = new IntersectionObserver(callback, options); // 웹API에 콜백을 전달
+      boxes.forEach((box) => observer.observe(box)); // 관찰자가 박스를 순회하면 관찰하도록 함
+    </script>
+  </body>
+</html>

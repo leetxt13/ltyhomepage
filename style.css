@@ -119,7 +119,9 @@ button {
   margin: 0 4px;
   cursor: pointer;
   border-radius: var(--size-border-radius);
-  border: 1px solid transparent;
+}
+.navbar__menu__item.active {
+  border: 1px solid white;
 }
 
 .navbar__menu__item:hover {
@@ -602,6 +604,8 @@ button {
     width: 80px;
     height: 80px;
   }
-  .testimonial__speech-bubble p{
-    font-size : 12px;
-  text-align : left;}
+  .testimonial__speech-bubble p {
+    font-size: 12px;
+    text-align: left;
+  }
+}
